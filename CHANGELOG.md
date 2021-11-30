@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.1.0...v0.2.0) (2021-11-30)
+
+
+### Features
+
+* Add version number into footer ([c8c99e7](https://www.github.com/fussel178/raspberry-manager/commit/c8c99e7f7f74f4b2296aeaafecf8fcdbc652f1d1))
+
 ## 0.1.0 (2021-11-30)
 
 
