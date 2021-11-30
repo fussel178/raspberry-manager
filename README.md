@@ -7,8 +7,18 @@ Purely written in PHP without any dependencies.
 
 ## Get started
 
-1. Download the archive from the latest release.
-2. Extract it in your webroot on your Raspberry Pi.
+1. Clone the repository in your webroot:
+
+   ```sh
+   git clone https://github.com/fussel178/raspberry-manager /var/www/raspberry-manager
+   ```
+
+2. Check out the latest release tag:
+
+   ```sh
+   git checkout v0.1.0
+   ```
+
 3. Copy the sudo configuration to the sudoers configuration directory:
 
    ```sh
