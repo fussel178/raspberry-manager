@@ -1,2 +1,6 @@
 # project configuration
 /config.php
+
+# IDE configs
+.idea
+.vscode

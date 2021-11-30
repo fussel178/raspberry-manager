@@ -1,5 +1,8 @@
-<?php
+<?php /** @noinspection PhpUndefinedVariableInspection */
 require_once 'app/setup.php';
+
+$version = file_get_contents('version.txt');
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -64,7 +67,8 @@ require_once 'app/setup.php';
 </main>
 
 <footer>
-    @ 2021 by Ludwig Richter. Made with <a href="https://minicss.org/">mini.css</a>
+    Raspberry Manager v<?= $version ?> &copy; 2021 by Ludwig Richter. Made with <a
+            href="https://minicss.org/">mini.css</a>
 </footer>
 
 </body>
