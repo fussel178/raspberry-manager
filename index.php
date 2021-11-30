@@ -63,5 +63,9 @@ require_once 'app/setup.php';
     ?>
 </main>
 
+<footer>
+    @ 2021 by Ludwig Richter. Made with <a href="https://minicss.org/">mini.css</a>
+</footer>
+
 </body>
 </html>
