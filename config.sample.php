@@ -11,12 +11,12 @@ $systemd_units = [
 ];
 
 $interfaces = [
-    'wlp45s0',
-    'enp0s13f0u1'
+    'wlan0',
+    'eth0'
 ];
 
 $ssh_user = 'pi';
-$ssh_hostname = 'backstein.local';
+$ssh_hostname = 'raspberry.local';
 $ssh_password = 'raspberrypi';
 
 $config = [
