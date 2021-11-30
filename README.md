@@ -85,6 +85,10 @@ This method gets called, when all requests have been handled and the webpage is 
 
 Every controller receives it's own space in a card component.
 
+## Screenshots
+
+![Overview](./branding/screenshots/overview.png)
+
 ## About
 
 Made with [mini.css](https://minicss.org/).
