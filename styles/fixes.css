@@ -1,0 +1,73 @@
+/* Logo fixes */
+.logo-img {
+    display: inline-block;
+    height: 100%;
+}
+
+.logo-img > img {
+    height: 100%;
+}
+
+/* fix sticky header head-butting issue */
+/* see: https://css-tricks.com/hash-tag-links-padding/ */
+
+:target::before {
+    display: block;
+    content: " ";
+    margin-top: -51px;
+    height: 51px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+form.no-styling {
+    margin: 0;
+    padding: 0;
+    color: unset;
+    background: unset;
+    border: unset;
+    border-radius: unset;
+}
+
+/* Table fixes for special content */
+table:not(.horizontal).no-limits {
+    max-height: unset;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-margin-beside {
+    margin: 4px 0;
+}
+
+.no-margin-children > * {
+    margin: 0 0.125rem !important;
+}
+
+.no-margin-children > *:first-child {
+    margin-left: 0 !important;
+}
+
+.no-margin-children > *:last-child {
+    margin-right: 0 !important;
+}
+
+/* all row element should align right if table breakpoint is reached */
+@media screen and (max-width: 767px) {
+    table tbody tr td *.row {
+        justify-content: flex-end;
+    }
+}
+
+/* some more tag colors */
+mark.disabled {
+    --mark-fore-color: #131313;
+    --mark-back-color: #cbcbcb;
+}
+
+mark.warning {
+    --mark-fore-color: #131313;
+    --mark-back-color: #ebcb8b;
+}
