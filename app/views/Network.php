@@ -1,4 +1,4 @@
-<p>The Raspberry Pi has the following network configurations:</p>
+<p>Network configurations on your machine:</p>
 
 <div class="collapse">
     <?php foreach ($interfaces as $interface): ?>

@@ -6,7 +6,7 @@ if (isset($error)): ?>
         <p><?= $error ?></p>
     </div>
 <?php endif; ?>
-<p>System options on your Raspberry Pi:</p>
+<p>System options on your machine:</p>
 
 <div class="row">
     <form name="<?= $controller ?>" class="no-styling" method="post">

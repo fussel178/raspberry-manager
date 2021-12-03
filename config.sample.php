@@ -20,6 +20,7 @@ $ssh_hostname = 'raspberry.local';
 $ssh_password = 'raspberrypi';
 
 $config = [
+    "title" => "Raspberry Manager",
     "controllers" => [
         new SystemController(),
         new ServicesController($systemd_units),

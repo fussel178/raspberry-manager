@@ -13,7 +13,7 @@ $version = file_get_contents('version.txt');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>Raspberry Manager</title>
+    <title><?= $config['title'] ?></title>
 
     <!-- icon setup -->
     <meta name="theme-color" content="#ffffff">

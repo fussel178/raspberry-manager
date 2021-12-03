@@ -51,7 +51,7 @@ function get_load_state_class(array $service): string
     </div>
 <?php endforeach; endif; ?>
 
-<p>Currently installed services on your Raspberry Pi:</p>
+<p>Currently installed services on your machine:</p>
 
 <table class="striped no-limits">
     <thead>
