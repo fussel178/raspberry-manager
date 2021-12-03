@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedVariableInspection */
 function get_active_state_class(array $service): string
 {
     switch ($service['ActiveState']) {
@@ -63,7 +63,7 @@ function get_load_state_class(array $service): string
     </thead>
     <tbody>
 
-    <?php foreach ($services as $service): ?>
+    <?php foreach ($services as $index => $service): ?>
         <tr>
             <td data-label="Name">
                 <h5 class="no-margin"><?= $service['Id'] ?>
@@ -81,19 +81,46 @@ function get_load_state_class(array $service): string
                     <form class="no-styling no-margin-children" method="post">
                         <input type="hidden" name="controller" value="<?= $controller ?>">
                         <input type="hidden" name="unit" value="<?= $service['unit'] ?>">
-                        <button class="small primary" type="submit" name="action"
-                                value="<?= $service['start_value'] ?>">
-                            Start
-                        </button>
-                        <button class="small inverse" type="submit" name="action"
-                                value="<?= $service['reload_value'] ?>">Reload
-                        </button>
-                        <button class="small secondary" type="submit" name="action"
-                                value="<?= $service['stop_value'] ?>">Stop
-                        </button>
-                        <button class="small secondary" type="submit" name="action"
-                                value="<?= $service['restart_value'] ?>">Restart
-                        </button>
+
+                        <?php
+
+                        echo render_element('action-modal', [
+                            'id' => $controller . '-modal-start-' . $index,
+                            'description' => 'Would you like to start the unit "' . $service['Id'] . '"?',
+                            'button_type' => 'small primary',
+                            'button_title' => 'Start',
+                            'button_name' => 'action',
+                            'button_value' => $service['start_value']
+                        ]);
+
+                        echo render_element('action-modal', [
+                            'id' => $controller . '-modal-reload-' . $index,
+                            'description' => 'Would you like to reload the unit "' . $service['Id'] . '"?',
+                            'button_type' => 'small inverse',
+                            'button_title' => 'Reload',
+                            'button_name' => 'action',
+                            'button_value' => $service['reload_value']
+                        ]);
+
+                        echo render_element('action-modal', [
+                            'id' => $controller . '-modal-stop-' . $index,
+                            'description' => 'Would you like to stop the unit "' . $service['Id'] . '"?',
+                            'button_type' => 'small secondary',
+                            'button_title' => 'Stop',
+                            'button_name' => 'action',
+                            'button_value' => $service['stop_value']
+                        ]);
+
+                        echo render_element('action-modal', [
+                            'id' => $controller . '-modal-restart-' . $index,
+                            'description' => 'Would you like to restart the unit "' . $service['Id'] . '"?',
+                            'button_type' => 'small secondary',
+                            'button_title' => 'Restart',
+                            'button_name' => 'action',
+                            'button_value' => $service['restart_value']
+                        ]);
+
+                        ?>
                     </form>
                 </div>
             </td>
