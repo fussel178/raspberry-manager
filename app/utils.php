@@ -38,6 +38,11 @@ function render_view(string $view, array $values = array())
     return $output;
 }
 
+function render_element(string $name, array $values = array())
+{
+    return render_view('elements/' . $name, $values);
+}
+
 function extract_from(array $source, array $keys): array {
     $extracted = array();
     foreach ($keys as $key) {
