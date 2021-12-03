@@ -54,6 +54,10 @@ table:not(.horizontal).no-limits {
     margin-right: 0 !important;
 }
 
+.no-text-align {
+    text-align: left;
+}
+
 /* all row element should align right if table breakpoint is reached */
 @media screen and (max-width: 767px) {
     table tbody tr td *.row {

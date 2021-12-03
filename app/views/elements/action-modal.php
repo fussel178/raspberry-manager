@@ -6,7 +6,7 @@
 
 <input type="checkbox" id="<?= $id ?>" class="modal">
 <div>
-    <div class="card">
+    <div class="card no-text-align">
         <label for="<?= $id ?>" class="modal-close"></label>
         <h3 class="section">Confirm action</h3>
         <p class="section"><?= $description ?></p>
