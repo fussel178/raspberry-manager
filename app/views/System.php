@@ -1,4 +1,6 @@
-<?php if (isset($error)): ?>
+<?php /** @noinspection PhpUndefinedVariableInspection */
+
+if (isset($error)): ?>
     <div class="card error">
         <h3>Error</h3>
         <p><?= $error ?></p>
@@ -7,11 +9,19 @@
 <p>System options on your Raspberry Pi:</p>
 
 <div class="row">
-    <form class="no-styling" method="post">
+    <form name="<?= $controller ?>" class="no-styling" method="post">
         <input type="hidden" name="controller" value="<?= $controller ?>">
-        <?php foreach ($buttons as $button): ?>
-            <button class="<?= $button['type'] ?>" type="submit" name="button"
-                    value="<?= $button['value'] ?>"><?= $button['title'] ?></button>
-        <?php endforeach; ?>
+        <?php foreach ($buttons as $index => $button) {
+            $modal_id = $controller . '-modal-' . $index;
+
+            echo render_element('action-modal', [
+                'id' => $controller . '-modal-' . $index,
+                'description' => 'Would you like to ' . $button['title'] . '?',
+                'button_type' => $button['type'],
+                'button_title' => $button['title'],
+                'button_name' => 'button',
+                'button_value' => $button['value']
+            ]);
+        } ?>
     </form>
 </div>
