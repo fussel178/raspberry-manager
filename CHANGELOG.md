@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.2.0...v0.3.0) (2021-12-03)
+
+
+### Features
+
+* Add action modal element ([323ce68](https://www.github.com/fussel178/raspberry-manager/commit/323ce6874ff321c7d6a7658e1c33973b7f0f1676))
+* Add custom title to application ([11bf348](https://www.github.com/fussel178/raspberry-manager/commit/11bf3480eccd0c8ec74b7b124fbd4d3d22ef0883))
+* Add element renderer ([5f0baae](https://www.github.com/fussel178/raspberry-manager/commit/5f0baae674a0af303fad73b2d18837099590a675))
+* Add modals to actions in Service controller ([477f56c](https://www.github.com/fussel178/raspberry-manager/commit/477f56cb2c4db9507a13f02e5e7a4621578fbdc2))
+* Add modals to actions in System controller ([57d1934](https://www.github.com/fussel178/raspberry-manager/commit/57d1934fc1a4e8b3dc0829bd7384a5a85a93b944))
+
+
+### Bug Fixes
+
+* Text in modal aligned to the left ([48ed695](https://www.github.com/fussel178/raspberry-manager/commit/48ed69549f645eea351b05b9a644b3ae78371293))
+
 ## [0.2.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.1.0...v0.2.0) (2021-11-30)
 
 
