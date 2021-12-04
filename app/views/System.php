@@ -6,6 +6,12 @@ if (isset($error)): ?>
         <p><?= $error ?></p>
     </div>
 <?php endif; ?>
+<p>Current system load:</p>
+<pre><?= htmlspecialchars($load) ?></pre>
+
+<p>Current system memory consumption:</p>
+<pre><?= htmlspecialchars($meminfo) ?></pre>
+
 <p>System options on your machine:</p>
 
 <div class="row">

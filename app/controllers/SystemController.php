@@ -57,7 +57,35 @@ class SystemController extends Controller
         return render_view('System', [
             'controller' => $this->getId(),
             'buttons' => $buttons,
+            'load' => $this->get_system_load(),
+            'meminfo' => $this->get_meminfo(),
             'error' => $this->error
         ]);
+    }
+
+    function get_system_load(): string
+    {
+        $output = [];
+        $retval = 0;
+
+        exec('cat /proc/loadavg', $output, $retval);
+        if ($retval > 0) {
+            return 'System load not available';
+        }
+
+        return join(PHP_EOL, $output);
+    }
+
+    function get_meminfo(): string
+    {
+        $output = [];
+        $retval = 0;
+
+        exec('/usr/bin/free -h', $output, $retval);
+        if ($retval > 0) {
+            return 'Memory information not available';
+        }
+
+        return join(PHP_EOL, $output);
     }
 }
