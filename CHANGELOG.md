@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.3.0...v0.4.0) (2021-12-04)
+
+
+### Features
+
+* Add Export controller ([d5dd6ee](https://www.github.com/fussel178/raspberry-manager/commit/d5dd6ee184811303744507700d6704713ae4ba74))
+* Add more information to System controller ([4792796](https://www.github.com/fussel178/raspberry-manager/commit/479279614b3deae7c0112a942b29b7fba23266ab))
+
 ## [0.3.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.2.0...v0.3.0) (2021-12-03)
 
 
