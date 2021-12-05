@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.4.0...v0.5.0) (2021-12-05)
+
+
+### Features
+
+* Add custom script for Export Controller ([97917f8](https://www.github.com/fussel178/raspberry-manager/commit/97917f8a7c68e713e526773e3273ae1c231da9af))
+* Add other systemd units ([3bc6f41](https://www.github.com/fussel178/raspberry-manager/commit/3bc6f41c1eec8d08c0bfed4dc3af57df4eb6aaa6))
+* Add Serial Controller with custom shell script to handle systemd unit ([9bf0cfd](https://www.github.com/fussel178/raspberry-manager/commit/9bf0cfd613193b32a06e4945ce483e21a48fddd8))
+
 ## [0.4.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.3.0...v0.4.0) (2021-12-04)
 
 
