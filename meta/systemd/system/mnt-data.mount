@@ -1,0 +1,11 @@
+[Unit]
+Description=Export/Backup drive
+
+[Mount]
+What=/dev/disk/by-uuid/2A38-5267
+Where=/mnt/data
+Type=vfat
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target

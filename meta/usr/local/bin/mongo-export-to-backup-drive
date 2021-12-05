@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -eu
+
+UNIT_NAME="mnt-data.mount"
+BACKUP_DIR="/mnt/data/mongo"
+DATABASE="daedalus2"
+
+date=$(date --iso-8601='seconds' | tr -d ":")
+
+if ! /usr/bin/systemctl is-active --quiet "$UNIT_NAME"; then
+  printf "Backup drive is not mounted\n"
+  exit 1
+fi
+
+if ! [ -d "$BACKUP_DIR" ]; then
+  mkdir -p "$BACKUP_DIR"
+fi
+
+/usr/bin/mongodump -d "$DATABASE" -o "${BACKUP_DIR}/mongodump_${date}/"
