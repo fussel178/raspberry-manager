@@ -23,6 +23,7 @@ function get_sub_state_class(array $service): string
             return 'secondary';
         case 'mounted':
         case 'running':
+        case 'active':
             return 'tertiary';
         case 'exited':
         case 'dead':
