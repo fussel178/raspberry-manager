@@ -1,0 +1,19 @@
+[Unit]
+Description=%i with docker compose
+
+# BindsTo together with After: docker must strictly be in active state.
+# If docker is not running, we will be stopped as well.
+BindsTo=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+WorkingDirectory=/opt/docker-compose/%i
+ExecStart=/usr/local/bin/docker-compose up --detach --remove-orphans
+ExecStop=/usr/local/bin/docker-compose stop
+
+[Install]
+# Start us after docker.service is started (if we are installed / enabled)
+# If we fail, it does not concern docker.
+WantedBy=docker.service
