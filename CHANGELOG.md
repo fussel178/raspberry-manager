@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.1](https://www.github.com/fussel178/raspberry-manager/compare/v0.5.0...v0.5.1) (2021-12-05)
+
+
+### Bug Fixes
+
+* Make active sub state green ([7e39c44](https://www.github.com/fussel178/raspberry-manager/commit/7e39c44363f0f54ad2492f16af62e21e8f52e58c))
+
 ## [0.5.0](https://www.github.com/fussel178/raspberry-manager/compare/v0.4.0...v0.5.0) (2021-12-05)
 
 
