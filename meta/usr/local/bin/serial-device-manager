@@ -1,0 +1,97 @@
+#!/bin/sh
+
+set -eu
+
+ENV_FILE="/tmp/telestion-serial.conf"
+SYSTEMD_UNIT="telestion-serial.service"
+
+script_name="$(basename "$0")"
+
+gen_env_file() {
+  printf '%s=%s\n' 'DEVICE' "$1" 'BAUDRATE' "$2" > "$ENV_FILE"
+}
+
+connect() {
+  # first check, if telestion serial is currently used
+  if /usr/bin/systemctl is-active --quiet "$SYSTEMD_UNIT"; then
+    printf 'Another serial device is currently in use. Disconnect it first to continue\n'
+    exit 2
+  fi
+
+  # next check, if given device does exist and is a character special file
+  if ! [ -c "$1" ]; then
+    printf 'Given file is not a serial device\n'
+    exit 3
+  fi
+
+  gen_env_file "$1" "$2"
+  /usr/bin/systemctl start "$SYSTEMD_UNIT"
+}
+
+disconnect() {
+  # first check, if telestion serial is not already disconnected
+  if ! /usr/bin/systemctl is-active --quiet "$SYSTEMD_UNIT"; then
+    printf 'All serial devices are currently disconnected\n'
+    exit 2
+  fi
+
+  /usr/bin/systemctl stop "$SYSTEMD_UNIT"
+}
+
+status() {
+  if /usr/bin/systemctl is-active --quiet "$SYSTEMD_UNIT"; then
+    printf 'connected\n'
+  else
+    printf 'disconnected\n'
+  fi
+}
+
+device() {
+  if [ -f "$ENV_FILE" ] && /usr/bin/systemctl is-active --quiet "$SYSTEMD_UNIT"; then
+    grep "DEVICE" "$ENV_FILE" | cut -d"=" -f2
+    return;
+  fi
+
+  printf 'none\n'
+}
+
+baudrate() {
+  if [ -f "$ENV_FILE" ] && /usr/bin/systemctl is-active --quiet "$SYSTEMD_UNIT"; then
+    grep "BAUDRATE" "$ENV_FILE" | cut -d"=" -f2
+    return;
+  fi
+
+  printf 'none\n'
+}
+
+list() {
+  /usr/bin/find /dev -type c -print
+}
+
+help() {
+  printf 'Usage: %s (connect|disconnect|status|device|baudrate|list|help) [device] [baudrate]\n' "$script_name"
+  exit "$1"
+}
+
+[ "$#" -lt 1 ] && { help 1; }
+
+case "$1" in
+  connect)
+    shift
+    if [ "$#" -lt 1 ]; then
+      printf 'No serial device given\n'
+      exit 1
+    elif [ "$#" -lt 2 ]; then
+      printf 'No baudrate given\n'
+      exit 1
+    fi
+    connect "$1" "$2"
+    ;;
+  disconnect) disconnect;;
+  status) status;;
+  device) device;;
+  baudrate) baudrate;;
+  list) list;;
+  help) help 0;;
+  *) help 1;;
+esac

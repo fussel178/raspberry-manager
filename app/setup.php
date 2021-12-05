@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedVariableInspection */
 
 require_once 'utils.php';
 
@@ -19,7 +19,7 @@ if (array_key_exists('controller', $_POST)) {
             // pull only required elements from POST
             $extracted = extract_from($_POST, $controller->getKeys());
             // decode if necessary
-            $extracted = array_map(fn(string $value): string => urldecode($value), $extracted);
+            $extracted = array_map(fn($value) => isset($value) ? urldecode($value) : NULL, $extracted);
             // suitable controller found -> call with requested keys
             $controller->handle($extracted);
         }

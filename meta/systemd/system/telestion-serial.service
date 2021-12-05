@@ -1,0 +1,13 @@
+[Unit]
+Description=Serial Connector to Telestion Groundstation
+Wants=docker-compose@telestion-project-daedalus2.service
+Requires=docker-compose@telestion-project-daedalus2.service
+After=system.target
+
+[Service]
+Type=simple
+EnvironmentFile=/tmp/telestion-serial.conf
+ExecStart=/usr/bin/python /usr/local/bin/tcp_serial_redirect.py -c localhost:9871 "$DEVICE" "$BAUDRATE"
+
+[Install]
+WantedBy=multi-user.target

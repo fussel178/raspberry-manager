@@ -25,6 +25,8 @@ $config = [
         new SystemController(),
         new ServicesController($systemd_units),
         new NetworkController($interfaces),
+        new SerialController(),
+        new ExportController(),
         new RemoteAccessController($ssh_user, $ssh_hostname, $ssh_password)
     ]
 ];
