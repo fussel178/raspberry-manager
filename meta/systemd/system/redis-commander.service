@@ -2,7 +2,7 @@
 Description=Redis management tool written in node.js
 Documentation=https://github.com/joeferner/redis-commander/
 Wants=docker-compose@telestion-project-daedalus2.service
-Requires=docker-compose@telestion-project2-daedalus2.service
+Requires=docker-compose@telestion-project-daedalus2.service
 After=network.target
 
 [Service]
